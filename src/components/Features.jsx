@@ -1,0 +1,187 @@
+import React from 'react'
+import { 
+  FileText, 
+  ShoppingCart, 
+  Package, 
+  Users, 
+  CreditCard, 
+  TrendingUp,
+  Smartphone,
+  BarChart3,
+  Truck,
+  Download,
+  Globe,
+  Calculator
+} from 'lucide-react'
+
+const Features = () => {
+  const mainFeatures = [
+    {
+      icon: <FileText className="w-8 h-8" />,
+      title: "Documentos Fiscais Completos",
+      description: "NF-e, NFC-e, CT-e, MDF-e e NFS-e automatizados com total conformidade fiscal",
+      highlight: "Economia de 70% do tempo"
+    },
+    {
+      icon: <ShoppingCart className="w-8 h-8" />,
+      title: "PDV Completo Integrado",
+      description: "Sistema de vendas com suporte a NFC-e, controle de comissões e pré-vendas",
+      highlight: "Vendas mais rápidas"
+    },
+    {
+      icon: <Package className="w-8 h-8" />,
+      title: "Gestão Inteligente de Estoque",
+      description: "Controle completo de produtos, categorias, entradas e saídas em tempo real",
+      highlight: "Zero ruptura de estoque"
+    },
+    {
+      icon: <BarChart3 className="w-8 h-8" />,
+      title: "Dashboard Analítico",
+      description: "Visualize todos os dados do seu negócio com gráficos e indicadores claros",
+      highlight: "Decisões baseadas em dados"
+    }
+  ]
+
+  const additionalFeatures = [
+    {
+      icon: <Users className="w-6 h-6" />,
+      title: "Gestão de Clientes",
+      description: "Cadastro completo e histórico de relacionamento"
+    },
+    {
+      icon: <CreditCard className="w-6 h-6" />,
+      title: "Contas a Receber/Pagar",
+      description: "Controle financeiro completo e automático"
+    },
+    {
+      icon: <Smartphone className="w-6 h-6" />,
+      title: "App Mobile",
+      description: "Acesse de qualquer lugar, a qualquer momento"
+    },
+    {
+      icon: <Truck className="w-6 h-6" />,
+      title: "Gestão de Transporte",
+      description: "CT-e e MDF-e para operações logísticas"
+    },
+    {
+      icon: <Download className="w-6 h-6" />,
+      title: "Importação Excel/XML",
+      description: "Migre seus dados facilmente"
+    },
+    {
+      icon: <Globe className="w-6 h-6" />,
+      title: "E-commerce Integrado",
+      description: "Loja online conectada com marketplaces"
+    },
+    {
+      icon: <Calculator className="w-6 h-6" />,
+      title: "Folha de Pagamento",
+      description: "Gestão completa de RH e benefícios"
+    },
+    {
+      icon: <TrendingUp className="w-6 h-6" />,
+      title: "Relatórios Avançados",
+      description: "Análises detalhadas para crescimento"
+    }
+  ]
+
+  return (
+    <section id="funcionalidades" className="section-padding bg-white">
+      <div className="container-custom">
+        {/* Header */}
+        <div className="text-center mb-16">
+          <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+            Tudo que sua empresa precisa
+            <span className="text-primary-600"> em um só lugar</span>
+          </h2>
+          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            Sistema completo de gestão empresarial que integra vendas, estoque, 
+            fiscal e financeiro para maximizar seus resultados.
+          </p>
+        </div>
+
+        {/* Main Features Grid */}
+        <div className="grid lg:grid-cols-2 gap-8 mb-16">
+          {mainFeatures.map((feature, index) => (
+            <div 
+              key={index}
+              className="bg-gradient-to-br from-gray-50 to-white p-8 rounded-2xl border border-gray-200 hover:shadow-lg transition-all duration-300 group"
+            >
+              <div className="flex items-start space-x-4">
+                <div className="flex-shrink-0">
+                  <div className="w-16 h-16 bg-primary-100 rounded-xl flex items-center justify-center text-primary-600 group-hover:bg-primary-600 group-hover:text-white transition-colors duration-300">
+                    {feature.icon}
+                  </div>
+                </div>
+                <div className="flex-1">
+                  <h3 className="text-xl font-semibold text-gray-900 mb-2">
+                    {feature.title}
+                  </h3>
+                  <p className="text-gray-600 mb-3">
+                    {feature.description}
+                  </p>
+                  <div className="inline-flex items-center px-3 py-1 bg-secondary-100 text-secondary-700 rounded-full text-sm font-medium">
+                    ✓ {feature.highlight}
+                  </div>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        {/* Additional Features */}
+        <div className="bg-gray-50 rounded-3xl p-8 lg:p-12">
+          <div className="text-center mb-12">
+            <h3 className="text-3xl font-bold text-gray-900 mb-4">
+              E muito mais funcionalidades
+            </h3>
+            <p className="text-lg text-gray-600">
+              Descubra todas as ferramentas que vão transformar sua gestão empresarial
+            </p>
+          </div>
+
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {additionalFeatures.map((feature, index) => (
+              <div 
+                key={index}
+                className="bg-white p-6 rounded-xl border border-gray-200 hover:shadow-md transition-all duration-300 text-center group"
+              >
+                <div className="w-12 h-12 bg-primary-100 rounded-lg flex items-center justify-center text-primary-600 mx-auto mb-4 group-hover:bg-primary-600 group-hover:text-white transition-colors duration-300">
+                  {feature.icon}
+                </div>
+                <h4 className="font-semibold text-gray-900 mb-2">
+                  {feature.title}
+                </h4>
+                <p className="text-sm text-gray-600">
+                  {feature.description}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        {/* CTA Section */}
+        <div className="text-center mt-16">
+          <div className="bg-gradient-to-r from-primary-600 to-blue-600 rounded-2xl p-8 lg:p-12 text-white">
+            <h3 className="text-3xl font-bold mb-4">
+              Pronto para revolucionar sua gestão?
+            </h3>
+            <p className="text-xl mb-8 opacity-90">
+              Junte-se a mais de 5.000 empresas que já transformaram seus resultados
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <button className="bg-white text-primary-600 hover:bg-gray-100 font-semibold py-4 px-8 rounded-lg transition-colors duration-200 shadow-lg">
+                🚀 Teste Grátis por 7 Dias
+              </button>
+              <button className="border-2 border-white text-white hover:bg-white hover:text-primary-600 font-semibold py-4 px-8 rounded-lg transition-all duration-200">
+                Agendar Demonstração
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
+
+export default Features
