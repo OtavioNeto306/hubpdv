@@ -29,7 +29,20 @@ const CTA = () => {
 
   const onSubmit = (data) => {
     console.log('Dados do formulário CTA:', data)
-    // Aqui você integraria com sua API
+    
+    if (activeTab === 'trial') {
+      // Redireciona para o link de registro para teste gratuito
+      window.open('https://hubnfe.online/register', '_blank')
+      return
+    }
+    
+    if (activeTab === 'demo') {
+      // Redireciona para o WhatsApp para agendar demonstração
+      window.open('https://wa.me/+555571987369653?text=Gostaria%20de%20saber%20mais%20sobre%20o%20HUBPDV!', '_blank')
+      return
+    }
+    
+    // Processa o formulário normalmente (caso padrão)
     setIsSubmitted(true)
     reset()
     

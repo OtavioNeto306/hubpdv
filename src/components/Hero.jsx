@@ -17,7 +17,10 @@ const Hero = () => {
 
   const onSubmit = (data) => {
     console.log('Dados do formulário:', data)
-    // Aqui você integraria com sua API
+    
+    // Redireciona para o WhatsApp para agendar demonstração
+    window.open('https://wa.me/+555571987369653?text=Gostaria%20de%20saber%20mais%20sobre%20o%20HUBPDV!', '_blank')
+    
     setIsSubmitted(true)
     reset()
     
@@ -175,15 +178,15 @@ const Hero = () => {
             )}
 
             {/* Test CTA */}
-            <div className="mt-6 pt-6 border-t border-gray-200 text-center">
-              <p className="text-sm text-gray-600 mb-3">
+            <div className="mt-8 pt-6 border-t border-gray-200 text-center">
+              <p className="text-base text-gray-700 mb-4 font-medium">
                 Ou comece agora mesmo:
               </p>
-              <button className="btn-secondary w-full">
+              <a href="https://hubnfe.online/register" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center w-full bg-gradient-to-r from-secondary-500 to-secondary-600 hover:from-secondary-600 hover:to-secondary-700 text-white font-bold py-4 px-8 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 text-lg">
                 🚀 Teste Grátis por 7 Dias
-              </button>
-              <p className="text-xs text-gray-500 mt-2">
-                Sem cartão de crédito • Cancelamento a qualquer momento
+              </a>
+              <p className="text-sm text-gray-500 mt-3">
+                ✓ Sem cartão de crédito • ✓ Cancelamento a qualquer momento
               </p>
             </div>
           </div>

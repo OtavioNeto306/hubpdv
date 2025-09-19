@@ -38,9 +38,9 @@ const Header = () => {
               <Phone className="w-4 h-4" />
               <span>(71) 9 8736-9653</span>
             </div>
-            <button className="btn-primary text-sm">
+            <a href="https://hubnfe.online/register" target="_blank" rel="noopener noreferrer" className="btn-primary text-sm">
               Teste Grátis 7 Dias
-            </button>
+            </a>
           </div>
 
           {/* Mobile menu button */}
@@ -84,9 +84,9 @@ const Header = () => {
                   <Phone className="w-4 h-4" />
                   <span>(71) 9 8736-9653</span>
                 </div>
-                <button className="btn-primary w-full text-sm">
+                <a href="https://hubnfe.online/register" target="_blank" rel="noopener noreferrer" className="btn-primary w-full text-sm">
                   Teste Grátis 7 Dias
-                </button>
+                </a>
               </div>
             </div>
           </div>
