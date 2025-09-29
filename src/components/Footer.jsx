@@ -1,11 +1,12 @@
 import React, { useState } from 'react'
 import { 
+  MapPin, 
   Phone, 
   Mail, 
-  MapPin, 
-  Facebook, 
-  Instagram, 
-  Linkedin, 
+  Clock,
+  Facebook,
+  Instagram,
+  Linkedin,
   Youtube,
   ArrowRight,
   CheckCircle
@@ -18,31 +19,25 @@ const Footer = () => {
   const handleNewsletterSubmit = (e) => {
     e.preventDefault()
     if (email) {
-      console.log('Newsletter subscription:', email)
       setIsSubscribed(true)
       setEmail('')
-      
-      // Reset success message after 3 seconds
-      setTimeout(() => {
-        setIsSubscribed(false)
-      }, 3000)
+      setTimeout(() => setIsSubscribed(false), 3000)
     }
   }
 
   const quickLinks = [
+    { name: 'Início', href: '#inicio' },
     { name: 'Funcionalidades', href: '#funcionalidades' },
     { name: 'Benefícios', href: '#beneficios' },
-    { name: 'Demonstração', href: '#contato' },
-    { name: 'Teste Grátis', href: '#contato' }
+    { name: 'Contato', href: '#contato' }
   ]
 
   const solutions = [
     { name: 'PDV Completo', href: '#' },
-    { name: 'Notas Fiscais', href: '#' },
     { name: 'Gestão de Estoque', href: '#' },
-    { name: 'Controle Financeiro', href: '#' },
-    { name: 'E-commerce', href: '#' },
-    { name: 'App Mobile', href: '#' }
+    { name: 'Emissão de NFe', href: '#' },
+    { name: 'Relatórios Gerenciais', href: '#' },
+    { name: 'Controle Financeiro', href: '#' }
   ]
 
   const support = [
@@ -60,73 +55,92 @@ const Footer = () => {
     { name: 'LGPD', href: '#' }
   ]
 
+  const socialLinks = [
+    { icon: <Facebook className="w-4 lg:w-5 h-4 lg:h-5" />, href: '#', name: 'Facebook' },
+    { icon: <Instagram className="w-4 lg:w-5 h-4 lg:h-5" />, href: '#', name: 'Instagram' },
+    { icon: <Linkedin className="w-4 lg:w-5 h-4 lg:h-5" />, href: '#', name: 'LinkedIn' },
+    { icon: <Youtube className="w-4 lg:w-5 h-4 lg:h-5" />, href: '#', name: 'YouTube' }
+  ]
+
   return (
     <footer className="bg-gray-900 text-white">
-      {/* Main Footer */}
-      <div className="container-custom py-16">
-        <div className="grid lg:grid-cols-4 gap-8">
+      {/* Main Footer Content */}
+      <div className="container-custom py-12 lg:py-16">
+        <div className="grid lg:grid-cols-4 gap-8 lg:gap-12">
           {/* Company Info */}
-          <div className="lg:col-span-1 space-y-6">
-            <div>
-              <div className="text-3xl font-bold text-primary-400 mb-4">
+          <div className="lg:col-span-1">
+            <div className="mb-6">
+              <h3 className="text-2xl lg:text-3xl font-bold text-primary-400 mb-4">
                 HUBPDV
-              </div>
-              <p className="text-gray-300 leading-relaxed">
-                Sistema completo de gestão empresarial que transforma a forma como você administra seu negócio.
+              </h3>
+              <p className="text-gray-300 leading-relaxed text-sm lg:text-base">
+                A solução completa para gestão empresarial que transforma a forma como você administra seu negócio.
               </p>
             </div>
 
             {/* Contact Info */}
-            <div className="space-y-3">
+            <div className="space-y-3 lg:space-y-4">
+              <div className="flex items-start space-x-3">
+                <MapPin className="w-4 lg:w-5 h-4 lg:h-5 text-primary-400 mt-1 flex-shrink-0" />
+                <div className="text-sm lg:text-base">
+                  <p className="text-gray-300">
+                    Rua das Empresas, 123<br />
+                    Centro, São Paulo - SP<br />
+                    CEP: 01234-567
+                  </p>
+                </div>
+              </div>
+              
               <div className="flex items-center space-x-3">
-                <Phone className="w-5 h-5 text-primary-400" />
-                <a href="tel:+5571987369653" className="text-gray-300 hover:text-white transition-colors">
-                  (71) 9 8736-9653
+                <Phone className="w-4 lg:w-5 h-4 lg:h-5 text-primary-400 flex-shrink-0" />
+                <a href="tel:+5511999999999" className="text-gray-300 hover:text-primary-400 transition-colors text-sm lg:text-base">
+                  (11) 99999-9999
                 </a>
               </div>
+              
               <div className="flex items-center space-x-3">
-                <Mail className="w-5 h-5 text-primary-400" />
-                <a href="mailto:contato@hubpdv.com" className="text-gray-300 hover:text-white transition-colors">
+                <Mail className="w-4 lg:w-5 h-4 lg:h-5 text-primary-400 flex-shrink-0" />
+                <a href="mailto:contato@hubpdv.com" className="text-gray-300 hover:text-primary-400 transition-colors text-sm lg:text-base">
                   contato@hubpdv.com
                 </a>
               </div>
-              <div className="flex items-start space-x-3">
-                <MapPin className="w-5 h-5 text-primary-400 mt-1" />
-                <span className="text-gray-300">
-                  Salvador, Bahia<br />
-                  Brasil
+              
+              <div className="flex items-center space-x-3">
+                <Clock className="w-4 lg:w-5 h-4 lg:h-5 text-primary-400 flex-shrink-0" />
+                <span className="text-gray-300 text-sm lg:text-base">
+                  Seg - Sex: 8h às 18h
                 </span>
               </div>
             </div>
 
-            {/* Social Media */}
-            <div className="flex space-x-4">
-              <a href="#" className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center text-gray-400 hover:text-white hover:bg-primary-600 transition-all duration-200">
-                <Facebook className="w-5 h-5" />
-              </a>
-              <a href="#" className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center text-gray-400 hover:text-white hover:bg-primary-600 transition-all duration-200">
-                <Instagram className="w-5 h-5" />
-              </a>
-              <a href="#" className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center text-gray-400 hover:text-white hover:bg-primary-600 transition-all duration-200">
-                <Linkedin className="w-5 h-5" />
-              </a>
-              <a href="#" className="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center text-gray-400 hover:text-white hover:bg-primary-600 transition-all duration-200">
-                <Youtube className="w-5 h-5" />
-              </a>
+            {/* Social Links */}
+            <div className="mt-6">
+              <h4 className="font-semibold mb-3 text-sm lg:text-base">Siga-nos</h4>
+              <div className="flex space-x-3">
+                {socialLinks.map((social, index) => (
+                  <a
+                    key={index}
+                    href={social.href}
+                    className="w-8 lg:w-10 h-8 lg:h-10 bg-gray-800 hover:bg-primary-600 rounded-lg flex items-center justify-center transition-colors"
+                    aria-label={social.name}
+                  >
+                    {social.icon}
+                  </a>
+                ))}
+              </div>
             </div>
           </div>
 
           {/* Quick Links */}
           <div>
-            <h3 className="text-lg font-semibold mb-6">Links Rápidos</h3>
-            <ul className="space-y-3">
+            <h4 className="font-semibold mb-4 lg:mb-6 text-base lg:text-lg">Links Rápidos</h4>
+            <ul className="space-y-2 lg:space-y-3">
               {quickLinks.map((link, index) => (
                 <li key={index}>
                   <a 
                     href={link.href} 
-                    className="text-gray-300 hover:text-white transition-colors duration-200 flex items-center group"
+                    className="text-gray-300 hover:text-primary-400 transition-colors text-sm lg:text-base"
                   >
-                    <ArrowRight className="w-4 h-4 mr-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
                     {link.name}
                   </a>
                 </li>
@@ -136,15 +150,14 @@ const Footer = () => {
 
           {/* Solutions */}
           <div>
-            <h3 className="text-lg font-semibold mb-6">Soluções</h3>
-            <ul className="space-y-3">
+            <h4 className="font-semibold mb-4 lg:mb-6 text-base lg:text-lg">Soluções</h4>
+            <ul className="space-y-2 lg:space-y-3">
               {solutions.map((solution, index) => (
                 <li key={index}>
                   <a 
                     href={solution.href} 
-                    className="text-gray-300 hover:text-white transition-colors duration-200 flex items-center group"
+                    className="text-gray-300 hover:text-primary-400 transition-colors text-sm lg:text-base"
                   >
-                    <ArrowRight className="w-4 h-4 mr-2 opacity-0 group-hover:opacity-100 transition-opacity duration-200" />
                     {solution.name}
                   </a>
                 </li>
@@ -152,77 +165,53 @@ const Footer = () => {
             </ul>
           </div>
 
-          {/* Newsletter */}
+          {/* Support & Newsletter */}
           <div>
-            <h3 className="text-lg font-semibold mb-6">Newsletter</h3>
-            <p className="text-gray-300 mb-6">
-              Receba dicas, novidades e atualizações sobre gestão empresarial.
-            </p>
-            
-            {isSubscribed ? (
-              <div className="bg-green-900 border border-green-700 rounded-lg p-4">
-                <div className="flex items-center space-x-2">
-                  <CheckCircle className="w-5 h-5 text-green-400" />
-                  <span className="text-green-300 font-medium">Inscrição realizada!</span>
-                </div>
-                <p className="text-green-400 text-sm mt-1">
-                  Obrigado por se inscrever em nossa newsletter.
-                </p>
-              </div>
-            ) : (
-              <form onSubmit={handleNewsletterSubmit} className="space-y-4">
-                <input
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  placeholder="Seu melhor e-mail"
-                  className="w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors text-white placeholder-gray-400"
-                  required
-                />
-                <button
-                  type="submit"
-                  className="w-full bg-primary-600 hover:bg-primary-700 text-white font-semibold py-3 px-4 rounded-lg transition-colors duration-200 flex items-center justify-center space-x-2"
-                >
-                  <span>Inscrever-se</span>
-                  <ArrowRight className="w-4 h-4" />
-                </button>
-              </form>
-            )}
-          </div>
-        </div>
-      </div>
+            <h4 className="font-semibold mb-4 lg:mb-6 text-base lg:text-lg">Suporte</h4>
+            <ul className="space-y-2 lg:space-y-3 mb-6 lg:mb-8">
+              {support.map((item, index) => (
+                <li key={index}>
+                  <a 
+                    href={item.href} 
+                    className="text-gray-300 hover:text-primary-400 transition-colors text-sm lg:text-base"
+                  >
+                    {item.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
 
-      {/* Support Links */}
-      <div className="border-t border-gray-800">
-        <div className="container-custom py-8">
-          <div className="grid md:grid-cols-2 gap-8">
-            <div>
-              <h4 className="text-lg font-semibold mb-4">Suporte</h4>
-              <div className="grid sm:grid-cols-2 gap-2">
-                {support.map((item, index) => (
-                  <a 
-                    key={index}
-                    href={item.href} 
-                    className="text-gray-400 hover:text-white transition-colors duration-200 text-sm"
+            {/* Newsletter */}
+            <div className="bg-gray-800 rounded-xl p-4 lg:p-6">
+              <h5 className="font-semibold mb-3 text-sm lg:text-base">Newsletter</h5>
+              <p className="text-gray-300 mb-4 text-xs lg:text-sm">
+                Receba dicas e novidades sobre gestão empresarial
+              </p>
+              
+              {isSubscribed ? (
+                <div className="flex items-center space-x-2 text-green-400">
+                  <CheckCircle className="w-4 h-4" />
+                  <span className="text-xs lg:text-sm">Inscrito com sucesso!</span>
+                </div>
+              ) : (
+                <form onSubmit={handleNewsletterSubmit} className="space-y-3">
+                  <input
+                    type="email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    placeholder="Seu e-mail"
+                    className="w-full px-3 py-2 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent text-white placeholder-gray-400 text-sm"
+                    required
+                  />
+                  <button
+                    type="submit"
+                    className="w-full bg-primary-600 hover:bg-primary-700 text-white py-2 px-4 rounded-lg transition-colors flex items-center justify-center space-x-2 text-sm"
                   >
-                    {item.name}
-                  </a>
-                ))}
-              </div>
-            </div>
-            <div>
-              <h4 className="text-lg font-semibold mb-4">Legal</h4>
-              <div className="grid sm:grid-cols-2 gap-2">
-                {legal.map((item, index) => (
-                  <a 
-                    key={index}
-                    href={item.href} 
-                    className="text-gray-400 hover:text-white transition-colors duration-200 text-sm"
-                  >
-                    {item.name}
-                  </a>
-                ))}
-              </div>
+                    <span>Inscrever</span>
+                    <ArrowRight className="w-3 h-3" />
+                  </button>
+                </form>
+              )}
             </div>
           </div>
         </div>
@@ -230,19 +219,35 @@ const Footer = () => {
 
       {/* Bottom Bar */}
       <div className="border-t border-gray-800">
-        <div className="container-custom py-6">
-          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <div className="text-gray-400 text-sm">
-              © 2025 HUBPDV. Todos os direitos reservados.
+        <div className="container-custom py-6 lg:py-8">
+          <div className="flex flex-col lg:flex-row justify-between items-center space-y-4 lg:space-y-0">
+            {/* Copyright */}
+            <div className="text-center lg:text-left">
+              <p className="text-gray-400 text-xs lg:text-sm">
+                © 2024 HUBPDV. Todos os direitos reservados.
+              </p>
             </div>
-            <div className="flex items-center space-x-6">
-              <div className="flex items-center space-x-2">
-                <div className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
-                <span className="text-gray-400 text-sm">Sistema Online</span>
-              </div>
-              <div className="text-gray-400 text-sm">
-                Desenvolvido com ❤️ no Brasil
-              </div>
+
+            {/* Legal Links */}
+            <div className="flex flex-wrap justify-center lg:justify-end gap-4 lg:gap-6">
+              {legal.map((item, index) => (
+                <a
+                  key={index}
+                  href={item.href}
+                  className="text-gray-400 hover:text-primary-400 transition-colors text-xs lg:text-sm"
+                >
+                  {item.name}
+                </a>
+              ))}
+            </div>
+          </div>
+
+          {/* Additional Info */}
+          <div className="mt-4 lg:mt-6 pt-4 lg:pt-6 border-t border-gray-800">
+            <div className="text-center">
+              <p className="text-gray-500 text-xs lg:text-sm">
+                HUBPDV - CNPJ: 12.345.678/0001-90 | Desenvolvido com ❤️ para empresas brasileiras
+              </p>
             </div>
           </div>
         </div>

@@ -1,287 +1,294 @@
 import React, { useState } from 'react'
-import { useForm } from 'react-hook-form'
-import { yupResolver } from '@hookform/resolvers/yup'
-import * as yup from 'yup'
 import { 
+  ArrowRight, 
   CheckCircle, 
-  Clock, 
-  Shield, 
-  Zap, 
-  ArrowRight,
-  Phone,
+  Phone, 
+  MessageCircle, 
   Mail,
-  MessageCircle
+  Clock,
+  Shield,
+  Zap
 } from 'lucide-react'
 
-const schema = yup.object({
-  email: yup.string().email('E-mail inválido').required('E-mail é obrigatório'),
-  whatsapp: yup.string().required('WhatsApp é obrigatório').min(10, 'WhatsApp deve ter pelo menos 10 dígitos'),
-  company: yup.string().required('Nome da empresa é obrigatório')
-})
-
 const CTA = () => {
-  const [isSubmitted, setIsSubmitted] = useState(false)
-  const [activeTab, setActiveTab] = useState('demo')
-  
-  const { register, handleSubmit, formState: { errors }, reset } = useForm({
-    resolver: yupResolver(schema)
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    phone: '',
+    company: '',
+    employees: '',
+    interest: 'demo'
   })
+  const [isSubmitted, setIsSubmitted] = useState(false)
+  const [isLoading, setIsLoading] = useState(false)
 
-  const onSubmit = (data) => {
-    console.log('Dados do formulário CTA:', data)
+  const handleInputChange = (e) => {
+    const { name, value } = e.target
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }))
+  }
+
+  const handleSubmit = async (e) => {
+    e.preventDefault()
+    setIsLoading(true)
     
-    if (activeTab === 'trial') {
-      // Redireciona para o link de registro para teste gratuito
-      window.open('https://hubnfe.online/register', '_blank')
-      return
-    }
-    
-    if (activeTab === 'demo') {
-      // Redireciona para o WhatsApp para agendar demonstração
-      window.open('https://wa.me/+555571987369653?text=Gostaria%20de%20saber%20mais%20sobre%20o%20HUBPDV!', '_blank')
-      return
-    }
-    
-    // Processa o formulário normalmente (caso padrão)
-    setIsSubmitted(true)
-    reset()
-    
-    // Reset success message after 5 seconds
+    // Simular envio
     setTimeout(() => {
-      setIsSubmitted(false)
-    }, 5000)
+      setIsLoading(false)
+      setIsSubmitted(true)
+      
+      // Redirecionar para WhatsApp após 2 segundos
+      setTimeout(() => {
+        const message = `Olá! Gostaria de agendar uma demonstração do HUBPDV.
+        
+Dados:
+- Nome: ${formData.name}
+- Email: ${formData.email}
+- Telefone: ${formData.phone}
+- Empresa: ${formData.company}
+- Funcionários: ${formData.employees}
+- Interesse: ${formData.interest === 'demo' ? 'Demonstração' : 'Teste Gratuito'}`
+        
+        const whatsappUrl = `https://wa.me/5511999999999?text=${encodeURIComponent(message)}`
+        window.open(whatsappUrl, '_blank')
+      }, 2000)
+    }, 1500)
   }
 
   const benefits = [
     {
-      icon: <Clock className="w-5 h-5" />,
-      text: "Implementação em 24 horas"
+      icon: <Clock className="w-4 lg:w-5 h-4 lg:h-5" />,
+      text: "Implementação em 24h"
     },
     {
-      icon: <Shield className="w-5 h-5" />,
-      text: "Dados 100% seguros e protegidos"
+      icon: <Shield className="w-4 lg:w-5 h-4 lg:h-5" />,
+      text: "Dados 100% seguros"
     },
     {
-      icon: <Zap className="w-5 h-5" />,
-      text: "Suporte técnico especializado"
-    },
-    {
-      icon: <CheckCircle className="w-5 h-5" />,
-      text: "Garantia de satisfação"
+      icon: <Zap className="w-4 lg:w-5 h-4 lg:h-5" />,
+      text: "Suporte especializado"
     }
   ]
 
-  return (
-    <section id="contato" className="section-padding bg-gradient-to-br from-primary-900 via-primary-800 to-blue-900 text-white relative overflow-hidden">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-10">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`
-        }} />
-      </div>
-
-      <div className="container-custom relative">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Left Column - Content */}
-          <div className="space-y-8">
-            <div className="space-y-6">
-              <h2 className="text-4xl lg:text-5xl font-bold leading-tight">
-                Pronto para transformar
-                <span className="text-yellow-400"> sua empresa?</span>
+  if (isSubmitted) {
+    return (
+      <section className="section-padding bg-gradient-to-br from-primary-600 via-blue-600 to-purple-600">
+        <div className="container-custom">
+          <div className="max-w-2xl mx-auto text-center">
+            <div className="bg-white rounded-3xl p-6 lg:p-8 xl:p-12 shadow-2xl">
+              <div className="w-16 lg:w-20 h-16 lg:h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+                <CheckCircle className="w-8 lg:w-10 h-8 lg:h-10 text-green-600" />
+              </div>
+              
+              <h2 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-4">
+                Solicitação Enviada com Sucesso!
               </h2>
-              <p className="text-xl text-blue-100 leading-relaxed">
-                Mais de 5.000 empresas já revolucionaram sua gestão com o HUBPDV. 
-                Seja a próxima história de sucesso.
+              
+              <p className="text-base lg:text-lg text-gray-600 mb-6">
+                Você será redirecionado para o WhatsApp em instantes para finalizar o agendamento.
               </p>
+              
+              <div className="flex items-center justify-center space-x-2 text-primary-600">
+                <div className="w-2 h-2 bg-primary-600 rounded-full animate-bounce"></div>
+                <div className="w-2 h-2 bg-primary-600 rounded-full animate-bounce" style={{animationDelay: '0.1s'}}></div>
+                <div className="w-2 h-2 bg-primary-600 rounded-full animate-bounce" style={{animationDelay: '0.2s'}}></div>
+              </div>
             </div>
+          </div>
+        </div>
+      </section>
+    )
+  }
 
-            {/* Benefits List */}
-            <div className="grid sm:grid-cols-2 gap-4">
+  return (
+    <section id="contato" className="section-padding bg-gradient-to-br from-primary-600 via-blue-600 to-purple-600">
+      <div className="container-custom">
+        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+          {/* Left Content */}
+          <div className="text-white order-2 lg:order-1">
+            <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 lg:mb-6">
+              Pronto para transformar seu negócio?
+            </h2>
+            
+            <p className="text-lg lg:text-xl text-blue-100 mb-6 lg:mb-8 leading-relaxed">
+              Agende uma demonstração gratuita e veja como o HUBPDV pode revolucionar sua gestão empresarial em apenas 30 minutos.
+            </p>
+
+            {/* Benefits */}
+            <div className="space-y-3 lg:space-y-4 mb-6 lg:mb-8">
               {benefits.map((benefit, index) => (
                 <div key={index} className="flex items-center space-x-3">
-                  <div className="flex-shrink-0 w-8 h-8 bg-yellow-400 rounded-full flex items-center justify-center text-primary-900">
+                  <div className="w-8 lg:w-10 h-8 lg:h-10 bg-white/20 rounded-full flex items-center justify-center flex-shrink-0">
                     {benefit.icon}
                   </div>
-                  <span className="text-blue-100">{benefit.text}</span>
+                  <span className="text-blue-100 text-sm lg:text-base">{benefit.text}</span>
                 </div>
               ))}
             </div>
 
-            {/* Urgency Elements */}
-            <div className="bg-yellow-400 bg-opacity-20 border border-yellow-400 rounded-xl p-6">
-              <div className="flex items-center space-x-3 mb-3">
-                <div className="w-3 h-3 bg-yellow-400 rounded-full animate-pulse" />
-                <span className="font-semibold text-yellow-400">Oferta Limitada</span>
-              </div>
-              <p className="text-blue-100">
-                <strong className="text-white">Primeiros 100 clientes</strong> ganham 3 meses grátis + 
-                implementação sem custo adicional. Restam apenas 23 vagas!
-              </p>
-            </div>
-
             {/* Contact Options */}
-            <div className="space-y-4">
-              <h3 className="text-xl font-semibold mb-4">Ou entre em contato diretamente:</h3>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <a 
-                  href="tel:+5571987369653"
-                  className="flex items-center space-x-3 bg-white bg-opacity-10 hover:bg-opacity-20 rounded-lg p-4 transition-all duration-200"
-                >
-                  <Phone className="w-5 h-5 text-yellow-400" />
-                  <div>
-                    <div className="font-medium">(71) 9 8736-9653</div>
-                    <div className="text-sm text-blue-200">Ligue agora</div>
-                  </div>
-                </a>
-                <a 
-                  href="mailto:contato@hubpdv.com"
-                  className="flex items-center space-x-3 bg-white bg-opacity-10 hover:bg-opacity-20 rounded-lg p-4 transition-all duration-200"
-                >
-                  <Mail className="w-5 h-5 text-yellow-400" />
-                  <div>
-                    <div className="font-medium">contato@hubpdv.com</div>
-                    <div className="text-sm text-blue-200">Envie um e-mail</div>
-                  </div>
-                </a>
+            <div className="space-y-3 lg:space-y-4">
+              <div className="text-blue-100">
+                <p className="font-semibold mb-2 text-sm lg:text-base">Prefere falar diretamente?</p>
+                <div className="flex flex-col sm:flex-row gap-3 lg:gap-4">
+                  <a 
+                    href="https://wa.me/5511999999999" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center space-x-2 bg-white/20 hover:bg-white/30 transition-colors rounded-lg px-3 lg:px-4 py-2 text-sm lg:text-base"
+                  >
+                    <MessageCircle className="w-4 h-4" />
+                    <span>WhatsApp</span>
+                  </a>
+                  <a 
+                    href="tel:+5511999999999"
+                    className="inline-flex items-center space-x-2 bg-white/20 hover:bg-white/30 transition-colors rounded-lg px-3 lg:px-4 py-2 text-sm lg:text-base"
+                  >
+                    <Phone className="w-4 h-4" />
+                    <span>(11) 99999-9999</span>
+                  </a>
+                </div>
               </div>
             </div>
           </div>
 
-          {/* Right Column - Form */}
-          <div className="bg-white rounded-3xl p-8 lg:p-10 text-gray-900 shadow-2xl">
-            {/* Tab Navigation */}
-            <div className="flex bg-gray-100 rounded-xl p-1 mb-8">
-              <button
-                onClick={() => setActiveTab('demo')}
-                className={`flex-1 py-3 px-4 rounded-lg font-medium transition-all duration-200 ${
-                  activeTab === 'demo' 
-                    ? 'bg-primary-600 text-white shadow-md' 
-                    : 'text-gray-600 hover:text-gray-900'
-                }`}
-              >
-                Demonstração
-              </button>
-              <button
-                onClick={() => setActiveTab('trial')}
-                className={`flex-1 py-3 px-4 rounded-lg font-medium transition-all duration-200 ${
-                  activeTab === 'trial' 
-                    ? 'bg-secondary-600 text-white shadow-md' 
-                    : 'text-gray-600 hover:text-gray-900'
-                }`}
-              >
-                Teste Grátis
-              </button>
-            </div>
-
-            {isSubmitted ? (
-              <div className="text-center py-12">
-                <CheckCircle className="w-20 h-20 text-secondary-600 mx-auto mb-6" />
-                <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                  {activeTab === 'demo' ? 'Demonstração Agendada!' : 'Teste Ativado!'}
+          {/* Right Form */}
+          <div className="order-1 lg:order-2">
+            <div className="bg-white rounded-3xl p-6 lg:p-8 shadow-2xl">
+              <div className="text-center mb-6">
+                <h3 className="text-xl lg:text-2xl font-bold text-gray-900 mb-2">
+                  Agende sua Demonstração
                 </h3>
-                <p className="text-gray-600 mb-6">
-                  {activeTab === 'demo' 
-                    ? 'Nossa equipe entrará em contato em até 1 hora para confirmar o horário da sua demonstração personalizada.'
-                    : 'Enviamos as instruções de acesso para seu e-mail. Você já pode começar a usar o HUBPDV!'
-                  }
+                <p className="text-sm lg:text-base text-gray-600">
+                  Preencha os dados e receba acesso imediato
                 </p>
-                <div className="bg-green-50 border border-green-200 rounded-lg p-4">
-                  <p className="text-green-700 font-medium">
-                    ✓ Confirmação enviada por e-mail e WhatsApp
-                  </p>
-                </div>
               </div>
-            ) : (
-              <>
-                <div className="text-center mb-8">
-                  <h3 className="text-2xl font-bold text-gray-900 mb-2">
-                    {activeTab === 'demo' 
-                      ? 'Agende sua Demonstração Personalizada'
-                      : 'Comece seu Teste Gratuito Agora'
-                    }
-                  </h3>
-                  <p className="text-gray-600">
-                    {activeTab === 'demo' 
-                      ? 'Veja o HUBPDV funcionando com os dados da sua empresa'
-                      : 'Acesso completo por 7 dias, sem compromisso'
-                    }
-                  </p>
-                </div>
 
-                <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
+              <form onSubmit={handleSubmit} className="space-y-4">
+                <div className="grid sm:grid-cols-2 gap-4">
                   <div>
-                    <label htmlFor="company" className="block text-sm font-medium text-gray-700 mb-2">
-                      Nome da Empresa *
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Nome Completo *
                     </label>
                     <input
                       type="text"
-                      id="company"
-                      {...register('company')}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors"
-                      placeholder="Sua Empresa Ltda"
+                      name="name"
+                      value={formData.name}
+                      onChange={handleInputChange}
+                      required
+                      className="w-full px-3 lg:px-4 py-2 lg:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent text-sm lg:text-base"
+                      placeholder="Seu nome"
                     />
-                    {errors.company && (
-                      <p className="text-red-500 text-sm mt-1">{errors.company.message}</p>
-                    )}
                   </div>
-
+                  
                   <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-                      E-mail Corporativo *
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Email Corporativo *
                     </label>
                     <input
                       type="email"
-                      id="email"
-                      {...register('email')}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors"
-                      placeholder="seu@empresa.com"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleInputChange}
+                      required
+                      className="w-full px-3 lg:px-4 py-2 lg:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent text-sm lg:text-base"
+                      placeholder="seu@email.com"
                     />
-                    {errors.email && (
-                      <p className="text-red-500 text-sm mt-1">{errors.email.message}</p>
-                    )}
                   </div>
+                </div>
 
+                <div className="grid sm:grid-cols-2 gap-4">
                   <div>
-                    <label htmlFor="whatsapp" className="block text-sm font-medium text-gray-700 mb-2">
-                      WhatsApp *
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Telefone/WhatsApp *
                     </label>
                     <input
                       type="tel"
-                      id="whatsapp"
-                      {...register('whatsapp')}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors"
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleInputChange}
+                      required
+                      className="w-full px-3 lg:px-4 py-2 lg:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent text-sm lg:text-base"
                       placeholder="(11) 99999-9999"
                     />
-                    {errors.whatsapp && (
-                      <p className="text-red-500 text-sm mt-1">{errors.whatsapp.message}</p>
-                    )}
                   </div>
-
-                  <button
-                    type="submit"
-                    className={`w-full font-semibold py-4 px-6 rounded-lg transition-all duration-200 shadow-lg hover:shadow-xl flex items-center justify-center space-x-2 text-lg ${
-                      activeTab === 'demo'
-                        ? 'bg-primary-600 hover:bg-primary-700 text-white'
-                        : 'bg-secondary-600 hover:bg-secondary-700 text-white'
-                    }`}
-                  >
-                    <span>
-                      {activeTab === 'demo' ? 'Agendar Demonstração' : 'Iniciar Teste Gratuito'}
-                    </span>
-                    <ArrowRight className="w-5 h-5" />
-                  </button>
-
-                  <div className="text-center">
-                    <p className="text-sm text-gray-500">
-                      {activeTab === 'demo' 
-                        ? '✓ Demonstração personalizada • ✓ Sem compromisso • ✓ Resposta imediata'
-                        : '✓ 7 dias grátis • ✓ Sem cartão de crédito • ✓ Acesso completo'
-                      }
-                    </p>
+                  
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Empresa *
+                    </label>
+                    <input
+                      type="text"
+                      name="company"
+                      value={formData.company}
+                      onChange={handleInputChange}
+                      required
+                      className="w-full px-3 lg:px-4 py-2 lg:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent text-sm lg:text-base"
+                      placeholder="Nome da empresa"
+                    />
                   </div>
-                </form>
-              </>
-            )}
+                </div>
+
+                <div className="grid sm:grid-cols-2 gap-4">
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Número de Funcionários
+                    </label>
+                    <select
+                      name="employees"
+                      value={formData.employees}
+                      onChange={handleInputChange}
+                      className="w-full px-3 lg:px-4 py-2 lg:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent text-sm lg:text-base"
+                    >
+                      <option value="">Selecione</option>
+                      <option value="1-10">1-10 funcionários</option>
+                      <option value="11-50">11-50 funcionários</option>
+                      <option value="51-200">51-200 funcionários</option>
+                      <option value="200+">Mais de 200</option>
+                    </select>
+                  </div>
+                  
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Interesse
+                    </label>
+                    <select
+                      name="interest"
+                      value={formData.interest}
+                      onChange={handleInputChange}
+                      className="w-full px-3 lg:px-4 py-2 lg:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent text-sm lg:text-base"
+                    >
+                      <option value="demo">Demonstração</option>
+                      <option value="trial">Teste Gratuito</option>
+                    </select>
+                  </div>
+                </div>
+
+                <button
+                  type="submit"
+                  disabled={isLoading}
+                  className="w-full bg-gradient-to-r from-primary-600 to-blue-600 hover:from-primary-700 hover:to-blue-700 text-white font-semibold py-3 lg:py-4 px-6 rounded-lg transition-all duration-300 flex items-center justify-center space-x-2 disabled:opacity-50 text-sm lg:text-base"
+                >
+                  {isLoading ? (
+                    <>
+                      <div className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
+                      <span>Enviando...</span>
+                    </>
+                  ) : (
+                    <>
+                      <span>Agendar Demonstração Gratuita</span>
+                      <ArrowRight className="w-4 lg:w-5 h-4 lg:h-5" />
+                    </>
+                  )}
+                </button>
+
+                <p className="text-xs lg:text-sm text-gray-500 text-center">
+                  ✓ Sem compromisso • ✓ Demonstração personalizada • ✓ Suporte incluído
+                </p>
+              </form>
+            </div>
           </div>
         </div>
       </div>

@@ -5,6 +5,7 @@
   text-align: center;
 }
 
+/* Removendo estilos conflitantes que interferem na responsividade */
 .logo {
   height: 6em;
   padding: 1.5em;

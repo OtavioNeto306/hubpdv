@@ -13,28 +13,28 @@ import {
 const Benefits = () => {
   const benefits = [
     {
-      icon: <Clock className="w-8 h-8" />,
+      icon: <Clock className="w-6 lg:w-8 h-6 lg:h-8" />,
       title: "Economia de 70% do Tempo",
       description: "Automatize processos fiscais e reduza drasticamente o tempo gasto com burocracia",
       stats: "De 8h para 2h por dia",
       color: "from-blue-500 to-blue-600"
     },
     {
-      icon: <Shield className="w-8 h-8" />,
+      icon: <Shield className="w-6 lg:w-8 h-6 lg:h-8" />,
       title: "100% Conformidade Fiscal",
       description: "Sistema sempre atualizado com a legislação vigente, eliminando riscos de multas",
       stats: "Zero multas fiscais",
       color: "from-green-500 to-green-600"
     },
     {
-      icon: <HeadphonesIcon className="w-8 h-8" />,
+      icon: <HeadphonesIcon className="w-6 lg:w-8 h-6 lg:h-8" />,
       title: "Suporte Especializado 24/7",
       description: "Equipe técnica sempre disponível para resolver qualquer dúvida ou problema",
       stats: "Resposta em 2 minutos",
       color: "from-purple-500 to-purple-600"
     },
     {
-      icon: <TrendingUp className="w-8 h-8" />,
+      icon: <TrendingUp className="w-6 lg:w-8 h-6 lg:h-8" />,
       title: "Aumento de 40% na Produtividade",
       description: "Processos otimizados que permitem focar no crescimento do seu negócio",
       stats: "Mais vendas, menos trabalho",
@@ -80,37 +80,37 @@ const Benefits = () => {
     <section id="beneficios" className="section-padding bg-gray-50">
       <div className="container-custom">
         {/* Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-6">
+        <div className="text-center mb-12 lg:mb-16">
+          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 mb-4 lg:mb-6">
             Por que escolher o
             <span className="text-primary-600"> HUBPDV?</span>
           </h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-lg lg:text-xl text-gray-600 max-w-3xl mx-auto px-4">
             Descubra os benefícios reais que milhares de empresas já estão aproveitando
           </p>
         </div>
 
         {/* Benefits Grid */}
-        <div className="grid lg:grid-cols-2 gap-8 mb-20">
+        <div className="grid lg:grid-cols-2 gap-6 lg:gap-8 mb-16 lg:mb-20">
           {benefits.map((benefit, index) => (
             <div 
               key={index}
-              className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100"
+              className="bg-white rounded-2xl p-6 lg:p-8 shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-100"
             >
-              <div className="flex items-start space-x-6">
-                <div className={`w-16 h-16 bg-gradient-to-r ${benefit.color} rounded-xl flex items-center justify-center text-white flex-shrink-0`}>
+              <div className="flex items-start space-x-4 lg:space-x-6">
+                <div className={`w-12 lg:w-16 h-12 lg:h-16 bg-gradient-to-r ${benefit.color} rounded-xl flex items-center justify-center text-white flex-shrink-0`}>
                   {benefit.icon}
                 </div>
-                <div className="flex-1">
-                  <h3 className="text-xl font-bold text-gray-900 mb-3">
+                <div className="flex-1 min-w-0">
+                  <h3 className="text-lg lg:text-xl font-bold text-gray-900 mb-3">
                     {benefit.title}
                   </h3>
-                  <p className="text-gray-600 mb-4 leading-relaxed">
+                  <p className="text-gray-600 mb-4 leading-relaxed text-sm lg:text-base">
                     {benefit.description}
                   </p>
-                  <div className="inline-flex items-center px-4 py-2 bg-gray-100 rounded-full">
-                    <CheckCircle className="w-4 h-4 text-green-500 mr-2" />
-                    <span className="text-sm font-medium text-gray-700">{benefit.stats}</span>
+                  <div className="inline-flex items-center px-3 lg:px-4 py-2 bg-gray-100 rounded-full">
+                    <CheckCircle className="w-4 h-4 text-green-500 mr-2 flex-shrink-0" />
+                    <span className="text-xs lg:text-sm font-medium text-gray-700">{benefit.stats}</span>
                   </div>
                 </div>
               </div>
@@ -119,23 +119,23 @@ const Benefits = () => {
         </div>
 
         {/* Stats Section */}
-        <div className="bg-gradient-to-r from-primary-600 to-blue-600 rounded-3xl p-8 lg:p-12 mb-20">
-          <div className="text-center mb-12">
-            <h3 className="text-3xl font-bold text-white mb-4">
+        <div className="bg-gradient-to-r from-primary-600 to-blue-600 rounded-3xl p-6 lg:p-8 xl:p-12 mb-16 lg:mb-20">
+          <div className="text-center mb-8 lg:mb-12">
+            <h3 className="text-2xl lg:text-3xl font-bold text-white mb-4">
               Números que comprovam nossa excelência
             </h3>
-            <p className="text-xl text-blue-100">
+            <p className="text-lg lg:text-xl text-blue-100">
               Resultados reais de empresas que confiam no HUBPDV
             </p>
           </div>
           
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
             {stats.map((stat, index) => (
               <div key={index} className="text-center">
-                <div className="text-4xl lg:text-5xl font-bold text-white mb-2">
+                <div className="text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-2">
                   {stat.number}
                 </div>
-                <div className="text-blue-100 font-medium">
+                <div className="text-blue-100 font-medium text-sm lg:text-base">
                   {stat.label}
                 </div>
               </div>
@@ -144,47 +144,47 @@ const Benefits = () => {
         </div>
 
         {/* Testimonials */}
-        <div className="mb-16">
-          <div className="text-center mb-12">
-            <h3 className="text-3xl font-bold text-gray-900 mb-4">
+        <div className="mb-12 lg:mb-16">
+          <div className="text-center mb-8 lg:mb-12">
+            <h3 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-4">
               O que nossos clientes dizem
             </h3>
-            <p className="text-lg text-gray-600">
+            <p className="text-base lg:text-lg text-gray-600">
               Histórias reais de transformação e sucesso
             </p>
           </div>
 
-          <div className="grid lg:grid-cols-3 gap-8">
+          <div className="grid lg:grid-cols-3 gap-6 lg:gap-8">
             {testimonials.map((testimonial, index) => (
               <div 
                 key={index}
-                className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300"
+                className="bg-white rounded-2xl p-6 lg:p-8 shadow-lg border border-gray-100 hover:shadow-xl transition-all duration-300"
               >
                 {/* Rating */}
                 <div className="flex items-center mb-4">
                   {[...Array(testimonial.rating)].map((_, i) => (
-                    <Star key={i} className="w-5 h-5 text-yellow-400 fill-current" />
+                    <Star key={i} className="w-4 lg:w-5 h-4 lg:h-5 text-yellow-400 fill-current" />
                   ))}
                 </div>
 
                 {/* Content */}
-                <p className="text-gray-700 mb-6 leading-relaxed italic">
+                <p className="text-gray-700 mb-4 lg:mb-6 leading-relaxed italic text-sm lg:text-base">
                   "{testimonial.content}"
                 </p>
 
                 {/* Savings Highlight */}
-                <div className="bg-green-50 border border-green-200 rounded-lg p-3 mb-6">
+                <div className="bg-green-50 border border-green-200 rounded-lg p-3 mb-4 lg:mb-6">
                   <div className="flex items-center">
-                    <DollarSign className="w-5 h-5 text-green-600 mr-2" />
-                    <span className="text-green-700 font-semibold">{testimonial.savings}</span>
+                    <DollarSign className="w-4 lg:w-5 h-4 lg:h-5 text-green-600 mr-2 flex-shrink-0" />
+                    <span className="text-green-700 font-semibold text-sm lg:text-base">{testimonial.savings}</span>
                   </div>
                 </div>
 
                 {/* Author */}
                 <div className="border-t pt-4">
-                  <div className="font-semibold text-gray-900">{testimonial.name}</div>
-                  <div className="text-sm text-gray-600">{testimonial.role}</div>
-                  <div className="text-sm text-primary-600 font-medium">{testimonial.company}</div>
+                  <div className="font-semibold text-gray-900 text-sm lg:text-base">{testimonial.name}</div>
+                  <div className="text-xs lg:text-sm text-gray-600">{testimonial.role}</div>
+                  <div className="text-xs lg:text-sm text-primary-600 font-medium">{testimonial.company}</div>
                 </div>
               </div>
             ))}
@@ -193,22 +193,22 @@ const Benefits = () => {
 
         {/* Final CTA */}
         <div className="text-center">
-          <div className="bg-white rounded-2xl p-8 lg:p-12 shadow-lg border border-gray-200">
-            <h3 className="text-3xl font-bold text-gray-900 mb-4">
+          <div className="bg-white rounded-2xl p-6 lg:p-8 xl:p-12 shadow-lg border border-gray-200">
+            <h3 className="text-2xl lg:text-3xl font-bold text-gray-900 mb-4">
               Junte-se a milhares de empresas de sucesso
             </h3>
-            <p className="text-lg text-gray-600 mb-8">
+            <p className="text-base lg:text-lg text-gray-600 mb-6 lg:mb-8">
               Comece sua transformação digital hoje mesmo. Sem riscos, sem compromisso.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <a href="https://hubnfe.online/register" target="_blank" rel="noopener noreferrer" className="btn-primary text-lg py-4 px-8">
+            <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-2xl mx-auto">
+              <a href="https://hubnfe.online/register" target="_blank" rel="noopener noreferrer" className="btn-primary text-base lg:text-lg py-3 lg:py-4 px-6 lg:px-8">
                 🚀 Começar Teste Gratuito
               </a>
-              <button className="btn-outline text-lg py-4 px-8">
+              <button className="btn-outline text-base lg:text-lg py-3 lg:py-4 px-6 lg:px-8">
                 Falar com Especialista
               </button>
             </div>
-            <p className="text-sm text-gray-500 mt-4">
+            <p className="text-xs lg:text-sm text-gray-500 mt-4">
               ✓ 7 dias grátis • ✓ Sem cartão de crédito • ✓ Suporte incluído
             </p>
           </div>
