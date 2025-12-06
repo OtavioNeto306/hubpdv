@@ -57,9 +57,9 @@ const Footer = () => {
 
   const socialLinks = [
     { icon: <Facebook className="w-4 lg:w-5 h-4 lg:h-5" />, href: '#', name: 'Facebook' },
-    { icon: <Instagram className="w-4 lg:w-5 h-4 lg:h-5" />, href: '#', name: 'Instagram' },
+    { icon: <Instagram className="w-4 lg:w-5 h-4 lg:h-5" />, href: 'https://www.instagram.com/hubpdv', name: 'Instagram' },
     { icon: <Linkedin className="w-4 lg:w-5 h-4 lg:h-5" />, href: '#', name: 'LinkedIn' },
-    { icon: <Youtube className="w-4 lg:w-5 h-4 lg:h-5" />, href: '#', name: 'YouTube' }
+    { icon: <Youtube className="w-4 lg:w-5 h-4 lg:h-5" />, href: 'https://www.youtube.com/@Ebytehub-bl8rp', name: 'YouTube' }
   ]
 
   return (
@@ -94,7 +94,7 @@ const Footer = () => {
               <div className="flex items-center space-x-3">
                 <Phone className="w-4 lg:w-5 h-4 lg:h-5 text-primary-400 flex-shrink-0" />
                 <a href="tel:+5511999999999" className="text-gray-300 hover:text-primary-400 transition-colors text-sm lg:text-base">
-                  (11) 99999-9999
+                  (71) 99321-8281
                 </a>
               </div>
               

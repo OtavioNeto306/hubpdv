@@ -34,8 +34,40 @@ const CTA = () => {
     e.preventDefault()
     setIsLoading(true)
     
-    // Simular envio
-    setTimeout(() => {
+    try {
+      // URL do webhook do N8N - workflow LP.HUBPDV.ONLINE
+      const webhookUrl = import.meta.env.VITE_N8N_WEBHOOK_URL || 
+        'https://workflowwebhook.gestorbyte.com.br/webhook/27882574-9449-4802-9e93-2811036cca28'
+      
+      // Preparar dados para envio
+      const payload = {
+        name: formData.name,
+        email: formData.email,
+        phone: formData.phone,
+        company: formData.company,
+        employees: formData.employees || null,
+        interest: formData.interest === 'demo' ? 'Demonstração' : 'Teste Gratuito',
+        timestamp: new Date().toISOString(),
+        source: 'LP.HUBPDV.ONLINE'
+      }
+      
+      // Enviar dados para o N8N
+      const response = await fetch(webhookUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+        },
+        body: JSON.stringify(payload)
+      })
+      
+      // N8N pode retornar 200, 201 ou outros códigos de sucesso
+      const isSuccess = response.status >= 200 && response.status < 300
+      
+      if (!isSuccess && response.status !== 0) {
+        throw new Error(`Erro ao enviar formulário: ${response.status} - ${response.statusText}`)
+      }
+      
       setIsLoading(false)
       setIsSubmitted(true)
       
@@ -48,13 +80,18 @@ Dados:
 - Email: ${formData.email}
 - Telefone: ${formData.phone}
 - Empresa: ${formData.company}
-- Funcionários: ${formData.employees}
+- Funcionários: ${formData.employees || 'Não informado'}
 - Interesse: ${formData.interest === 'demo' ? 'Demonstração' : 'Teste Gratuito'}`
         
         const whatsappUrl = `https://wa.me/5511999999999?text=${encodeURIComponent(message)}`
         window.open(whatsappUrl, '_blank')
       }, 2000)
-    }, 1500)
+      
+    } catch (error) {
+      console.error('Erro ao enviar formulário:', error)
+      setIsLoading(false)
+      alert('Erro ao enviar formulário. Por favor, tente novamente ou entre em contato diretamente pelo WhatsApp.')
+    }
   }
 
   const benefits = [
@@ -147,7 +184,7 @@ Dados:
                     className="inline-flex items-center space-x-2 bg-white/20 hover:bg-white/30 transition-colors rounded-lg px-3 lg:px-4 py-2 text-sm lg:text-base"
                   >
                     <Phone className="w-4 h-4" />
-                    <span>(11) 99999-9999</span>
+                    <span>(71) 99321-8281</span>
                   </a>
                 </div>
               </div>
@@ -211,7 +248,7 @@ Dados:
                       onChange={handleInputChange}
                       required
                       className="w-full px-3 lg:px-4 py-2 lg:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent text-sm lg:text-base"
-                      placeholder="(11) 99999-9999"
+                      placeholder="(71) 99321-8281"
                     />
                   </div>
                   

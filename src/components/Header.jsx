@@ -92,7 +92,7 @@ const Header = () => {
               <div className="px-3 py-3 border-t border-gray-100 mt-2">
                 <div className="flex items-center space-x-2 text-sm text-gray-600 mb-4">
                   <Phone className="w-4 h-4" />
-                  <a href="tel:+5571987369653" className="hover:text-primary-600 transition-colors">
+                  <a href="tel:+5571993218281" className="hover:text-primary-600 transition-colors">
                     (71) 9 8736-9653
                   </a>
                 </div>

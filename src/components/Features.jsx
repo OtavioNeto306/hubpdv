@@ -173,7 +173,7 @@ const Features = () => {
               <a href="https://hubnfe.online/register" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center bg-gradient-to-r from-secondary-500 to-secondary-600 hover:from-secondary-600 hover:to-secondary-700 text-white font-bold py-3 lg:py-4 px-6 lg:px-8 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 text-base lg:text-lg">
                 🚀 Teste Grátis por 7 Dias
               </a>
-              <a href="https://wa.me/+555571987369653?text=Gostaria%20de%20saber%20mais%20sobre%20o%20HUBPDV!" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center border-2 border-white text-white hover:bg-white hover:text-primary-600 font-bold py-3 lg:py-4 px-6 lg:px-8 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 text-base lg:text-lg">
+              <a href="https://wa.me/+555571993218281?text=Gostaria%20de%20saber%20mais%20sobre%20o%20HUBPDV!" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center border-2 border-white text-white hover:bg-white hover:text-primary-600 font-bold py-3 lg:py-4 px-6 lg:px-8 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 text-base lg:text-lg">
                 📞 Agendar Demonstração
               </a>
             </div>

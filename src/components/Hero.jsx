@@ -19,7 +19,7 @@ const Hero = () => {
     console.log('Dados do formulário:', data)
     
     // Redireciona para o WhatsApp para agendar demonstração
-    window.open('https://wa.me/+555571987369653?text=Gostaria%20de%20saber%20mais%20sobre%20o%20HUBPDV!', '_blank')
+    window.open('https://wa.me/+555571993218281?text=Gostaria%20de%20saber%20mais%20sobre%20o%20HUBPDV!', '_blank')
     
     setIsSubmitted(true)
     reset()
@@ -155,7 +155,7 @@ const Hero = () => {
                     id="whatsapp"
                     {...register('whatsapp')}
                     className="w-full px-3 lg:px-4 py-2 lg:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-primary-500 transition-colors text-sm lg:text-base"
-                    placeholder="(11) 99999-9999"
+                    placeholder="(71) 99321-8281"
                   />
                   {errors.whatsapp && (
                     <p className="text-red-500 text-sm mt-1">{errors.whatsapp.message}</p>
