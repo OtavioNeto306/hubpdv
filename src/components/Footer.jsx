@@ -84,9 +84,7 @@ const Footer = () => {
                 <MapPin className="w-4 lg:w-5 h-4 lg:h-5 text-primary-400 mt-1 flex-shrink-0" />
                 <div className="text-sm lg:text-base">
                   <p className="text-gray-300">
-                    Rua das Empresas, 123<br />
-                    Centro, São Paulo - SP<br />
-                    CEP: 01234-567
+                    Salvador - Itaigara
                   </p>
                 </div>
               </div>
@@ -100,8 +98,8 @@ const Footer = () => {
               
               <div className="flex items-center space-x-3">
                 <Mail className="w-4 lg:w-5 h-4 lg:h-5 text-primary-400 flex-shrink-0" />
-                <a href="mailto:contato@hubpdv.com" className="text-gray-300 hover:text-primary-400 transition-colors text-sm lg:text-base">
-                  contato@hubpdv.com
+                <a href="mailto:suporte@ebytehub.com" className="text-gray-300 hover:text-primary-400 transition-colors text-sm lg:text-base">
+                  suporte@ebytehub.com
                 </a>
               </div>
               
