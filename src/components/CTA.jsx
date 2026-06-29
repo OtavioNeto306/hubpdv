@@ -83,7 +83,7 @@ Dados:
 - Funcionários: ${formData.employees || 'Não informado'}
 - Interesse: ${formData.interest === 'demo' ? 'Demonstração' : 'Teste Gratuito'}`
         
-        const whatsappUrl = `https://wa.me/5571993218281?text=${encodeURIComponent(message)}`
+        const whatsappUrl = `https://wa.me/5571992930767?text=${encodeURIComponent(message)}`
         window.open(whatsappUrl, '_blank')
       }, 2000)
       
@@ -171,7 +171,7 @@ Dados:
                 <p className="font-semibold mb-2 text-sm lg:text-base">Prefere falar diretamente?</p>
                 <div className="flex flex-col sm:flex-row gap-3 lg:gap-4">
                   <a 
-                    href="https://wa.me/5571993218281" 
+                    href="https://wa.me/5571992930767" 
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="inline-flex items-center space-x-2 bg-white/20 hover:bg-white/30 transition-colors rounded-lg px-3 lg:px-4 py-2 text-sm lg:text-base"
@@ -180,11 +180,11 @@ Dados:
                     <span>WhatsApp</span>
                   </a>
                   <a 
-                    href="tel:+5571993218281"
+                    href="tel:+5571992930767"
                     className="inline-flex items-center space-x-2 bg-white/20 hover:bg-white/30 transition-colors rounded-lg px-3 lg:px-4 py-2 text-sm lg:text-base"
                   >
                     <Phone className="w-4 h-4" />
-                    <span>(71) 99321-8281</span>
+                    <span>(71) 9 9293-0767</span>
                   </a>
                 </div>
               </div>
@@ -248,7 +248,7 @@ Dados:
                       onChange={handleInputChange}
                       required
                       className="w-full px-3 lg:px-4 py-2 lg:py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent text-sm lg:text-base"
-                      placeholder="(71) 99321-8281"
+                      placeholder="(71) 9 9293-0767"
                     />
                   </div>
                   

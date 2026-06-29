@@ -36,7 +36,7 @@ const Header = () => {
           <div className="hidden lg:flex items-center space-x-4">
             <div className="flex items-center space-x-2 text-sm text-gray-600">
               <Phone className="w-4 h-4" />
-              <span>(71) 9 8736-9653</span>
+              <a href="tel:+5571992930767" className="hover:text-primary-600 transition-colors">(71) 9 9293-0767</a>
             </div>
             <a href="https://hubnfe.online/register" target="_blank" rel="noopener noreferrer" className="btn-primary text-sm py-2 px-4">
               Teste Grátis 7 Dias
@@ -92,8 +92,8 @@ const Header = () => {
               <div className="px-3 py-3 border-t border-gray-100 mt-2">
                 <div className="flex items-center space-x-2 text-sm text-gray-600 mb-4">
                   <Phone className="w-4 h-4" />
-                  <a href="tel:+5571993218281" className="hover:text-primary-600 transition-colors">
-                    (71) 9 8736-9653
+                  <a href="tel:+5571992930767" className="hover:text-primary-600 transition-colors">
+                    (71) 9 9293-0767
                   </a>
                 </div>
                 <a 
