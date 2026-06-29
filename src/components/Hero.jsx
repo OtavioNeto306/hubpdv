@@ -21,6 +21,11 @@ const Hero = () => {
     // Redireciona para o WhatsApp para agendar demonstração
     window.open('https://wa.me/5571992930767?text=Gostaria%20de%20saber%20mais%20sobre%20o%20HUBPDV!', '_blank')
     
+    // Facebook Pixel tracking - Contact Event
+    if (typeof window.fbq === 'function') {
+      window.fbq('track', 'Contact');
+    }
+    
     setIsSubmitted(true)
     reset()
     

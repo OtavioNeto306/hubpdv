@@ -84,6 +84,12 @@ Dados:
 - Interesse: ${formData.interest === 'demo' ? 'Demonstração' : 'Teste Gratuito'}`
         
         const whatsappUrl = `https://wa.me/5571992930767?text=${encodeURIComponent(message)}`
+        
+        // Facebook Pixel tracking - Contact Event
+        if (typeof window.fbq === 'function') {
+          window.fbq('track', 'Contact');
+        }
+        
         window.open(whatsappUrl, '_blank')
       }, 2000)
       
@@ -170,10 +176,11 @@ Dados:
               <div className="text-blue-100">
                 <p className="font-semibold mb-2 text-sm lg:text-base">Prefere falar diretamente?</p>
                 <div className="flex flex-col sm:flex-row gap-3 lg:gap-4">
-                  <a 
+                   <a 
                     href="https://wa.me/5571992930767" 
                     target="_blank" 
                     rel="noopener noreferrer"
+                    onClick={() => typeof window.fbq === 'function' && window.fbq('track', 'Contact')}
                     className="inline-flex items-center space-x-2 bg-white/20 hover:bg-white/30 transition-colors rounded-lg px-3 lg:px-4 py-2 text-sm lg:text-base"
                   >
                     <MessageCircle className="w-4 h-4" />
@@ -181,6 +188,7 @@ Dados:
                   </a>
                   <a 
                     href="tel:+5571992930767"
+                    onClick={() => typeof window.fbq === 'function' && window.fbq('track', 'Contact')}
                     className="inline-flex items-center space-x-2 bg-white/20 hover:bg-white/30 transition-colors rounded-lg px-3 lg:px-4 py-2 text-sm lg:text-base"
                   >
                     <Phone className="w-4 h-4" />
