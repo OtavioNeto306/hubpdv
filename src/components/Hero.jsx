@@ -187,7 +187,7 @@ const Hero = () => {
               <p className="text-sm lg:text-base text-gray-700 mb-4 font-medium">
                 Ou comece agora mesmo:
               </p>
-              <a href="https://hubnfe.online/register" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center w-full bg-gradient-to-r from-secondary-500 to-secondary-600 hover:from-secondary-600 hover:to-secondary-700 text-white font-bold py-3 lg:py-4 px-6 lg:px-8 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 text-base lg:text-lg">
+              <a href="http://sistemahub.com.br" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center w-full bg-gradient-to-r from-secondary-500 to-secondary-600 hover:from-secondary-600 hover:to-secondary-700 text-white font-bold py-3 lg:py-4 px-6 lg:px-8 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 text-base lg:text-lg">
                 🚀 Teste Grátis por 7 Dias
               </a>
               <p className="text-xs lg:text-sm text-gray-500 mt-3">

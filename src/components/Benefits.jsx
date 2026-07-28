@@ -201,7 +201,7 @@ const Benefits = () => {
               Comece sua transformação digital hoje mesmo. Sem riscos, sem compromisso.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-2xl mx-auto">
-              <a href="https://hubnfe.online/register" target="_blank" rel="noopener noreferrer" className="btn-primary text-base lg:text-lg py-3 lg:py-4 px-6 lg:px-8">
+              <a href="http://sistemahub.com.br" target="_blank" rel="noopener noreferrer" className="btn-primary text-base lg:text-lg py-3 lg:py-4 px-6 lg:px-8">
                 🚀 Começar Teste Gratuito
               </a>
               <button className="btn-outline text-base lg:text-lg py-3 lg:py-4 px-6 lg:px-8">

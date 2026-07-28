@@ -44,14 +44,14 @@ const Header = () => {
                 (71) 9 9293-0767
               </a>
             </div>
-            <a href="https://hubnfe.online/register" target="_blank" rel="noopener noreferrer" className="btn-primary text-sm py-2 px-4">
+            <a href="http://sistemahub.com.br" target="_blank" rel="noopener noreferrer" className="btn-primary text-sm py-2 px-4">
               Teste Grátis 7 Dias
             </a>
           </div>
 
           {/* Mobile CTA Button - visible on md screens */}
           <div className="hidden md:flex lg:hidden">
-            <a href="https://hubnfe.online/register" target="_blank" rel="noopener noreferrer" className="btn-primary text-sm py-2 px-3">
+            <a href="http://sistemahub.com.br" target="_blank" rel="noopener noreferrer" className="btn-primary text-sm py-2 px-3">
               Teste Grátis
             </a>
           </div>
@@ -107,7 +107,7 @@ const Header = () => {
                   </a>
                 </div>
                 <a 
-                  href="https://hubnfe.online/register" 
+                  href="http://sistemahub.com.br" 
                   target="_blank" 
                   rel="noopener noreferrer" 
                   className="btn-primary w-full text-center py-3 text-base"

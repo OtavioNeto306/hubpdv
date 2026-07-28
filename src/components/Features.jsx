@@ -170,7 +170,7 @@ const Features = () => {
               Junte-se a mais de 5.000 empresas que já transformaram seus resultados
             </p>
             <div className="flex flex-col sm:flex-row gap-4 lg:gap-6 justify-center max-w-2xl mx-auto">
-              <a href="https://hubnfe.online/register" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center bg-gradient-to-r from-secondary-500 to-secondary-600 hover:from-secondary-600 hover:to-secondary-700 text-white font-bold py-3 lg:py-4 px-6 lg:px-8 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 text-base lg:text-lg">
+              <a href="http://sistemahub.com.br" target="_blank" rel="noopener noreferrer" className="inline-flex items-center justify-center bg-gradient-to-r from-secondary-500 to-secondary-600 hover:from-secondary-600 hover:to-secondary-700 text-white font-bold py-3 lg:py-4 px-6 lg:px-8 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl transform hover:scale-105 text-base lg:text-lg">
                 🚀 Teste Grátis por 7 Dias
               </a>
               <a 
